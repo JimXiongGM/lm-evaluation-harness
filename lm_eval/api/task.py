@@ -926,9 +926,12 @@ class ConfigurableTask(Task):
                     )
 
     def download(self, dataset_kwargs: Optional[Dict[str, Any]] = None) -> None:
+        from loguru import logger
+        logger.info(f"Downloading dataset. path={self.DATASET_PATH}, name={self.DATASET_NAME}")
         self.dataset = datasets.load_dataset(
             path=self.DATASET_PATH,
             name=self.DATASET_NAME,
+            cache_dir="./cache",
             **dataset_kwargs if dataset_kwargs is not None else {},
         )
 

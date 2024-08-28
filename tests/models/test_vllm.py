@@ -15,7 +15,7 @@ class Test_VLLM:
     try:
         from lm_eval.models.vllm_causallms import VLLM
 
-        LM = VLLM(pretrained="EleutherAI/pythia-70m")
+        LM = VLLM(pretrained="LLMs/EleutherAI/pythia-70m")
     except ModuleNotFoundError:
         pass
     # torch.use_deterministic_algorithms(True)
